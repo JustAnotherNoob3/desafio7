@@ -50,4 +50,7 @@ sessionsRouter.get('/githubcallback', passport.authenticate('github', { failureR
 sessionsRouter.get('/faillogin', async (req, res) => {
     res.status(401).send({ status: "error", error: "Login failed" });
 })
+sessionsRouter.get('/current', async (req, res) => {
+    res.status(200).send({ status: "success", payload: req.session.user });
+})
 export default sessionsRouter;

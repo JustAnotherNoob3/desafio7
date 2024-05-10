@@ -1,7 +1,5 @@
 import express from 'express'
 import productsRouter from './routes/productsRouter.js';
-import productManager from './dao/Services/ProductManager.js';
-import cartManager from './dao/Services/CartManager.js';
 import cartRouter from './routes/cartRouter.js';
 import chatRouter from './routes/chatRouter.js';
 import viewsRouter from './routes/viewsRouter.js';
@@ -39,7 +37,7 @@ const app = express();
 connectMongoDB();
 //main
 console.log(__dirname);
-const httpServer = app.listen(port, () => console.log("running"));
+const httpServer = app.listen(port, () => console.log("running on port "+ port));
 
 //websocket
 const socketServer = new Server(httpServer);
